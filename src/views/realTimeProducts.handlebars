@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <h1>
+       REAL TIME PRODUCTS
+    </h1>
+</header>
+<body>
+    
+    
+     <form id="formAgregar">
+        TITLE: <input type="text" name="title" id="title" required>
+        DESCRIPTION: <input type="text" name="description" id="description" required>
+        PRICE: <input type="number" name="price" id="price" required>
+        STOCK: <input type="number" name="stock" id="stock" required>
+        CODE: <input type="number" name="code" id="code" required>
+        CATEGORY: <input type="text" name="category" id="category" required>
+        THUMBAIL: <input type="text" name="thumbail" id="thumbail">
+        <button type="button" onclick="createOneProduc()">AGREGAR</button>
+    </form>
+
+  
+    <form id="formEliminar">
+        ID: <input type="text" name="id" id="id" required>
+        <button type="button" onclick="deleteOneProdAll()">ELIMINAR</button>
+    </form>
+
+    {{#if products.length}}
+        <div class="product-cards">
+            {{#each products}}
+                <div class="product-card">
+                    <h4>ID: {{_id}}</h4>
+                    <h4>TITLE: {{title}}</h4>
+                    <p>DESCRIPTION: {{description}}</p>
+                    <p>PRICE: ${{price}}</p>
+                    <p>STOCK: {{stock}}</p>
+                    <p>CATEGORY: {{category}}</p>
+                </div>
+            {{/each}}
+        </div>
+
+        <div class="pagination">
+            <button id="prev-page" {{#if prevPage}}data-page="{{prevPage}}"{{/if}}> Page</button>
+            <button id="next-page" {{#if nextPage}}data-page="{{nextPage}}"{{/if}}>Next Page</button>
+        </div>
+    {{else}} 
+        <p>No products available.</p>
+    {{/if}}     
+   
+    <script src="/functions.js"></script>
+
+
+</body>
+</html>

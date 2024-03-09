@@ -1,0 +1,31 @@
+<header>
+    <h1>
+       PRODUCT DETAIL
+    </h1>
+</header>
+<div class="carrito">
+    <a href="/api/views/carts/{{cartId}}" id="carritoLink">
+        <img class="imagen-carrito" src="https://cdn.pixabay.com/photo/2014/05/21/13/25/shopping-cart-349544_640.png" alt="Carrito de compras">
+    </a>
+    <span id="contadorCarrito"> {{quantity}} </span>
+    <input type="hidden" id="cartId" value="{{ cartId }}">
+
+</div>
+
+<div class="product-card">
+    <h4>TITLE: {{product._doc.title}}</h4>
+    <p>DESCRIPTION: {{product._doc.description}}</p>
+    <p>PRICE: ${{product._doc.price}}</p>
+    <p>STOCK: {{product._doc.stock}}</p>
+    <p>CATEGORY: {{product._doc.category}}</p>
+    <img src="{{product._doc.thumbail}}" alt="{{product._doc.title}}">      
+    <button class="boton" id="add-to-cart-btn" data-product-id="{{product._doc._id}}" onclick="addToCart('{{cartId}}', '{{product._doc._id}}')">Add to Cart</button>
+    <input type="hidden" id="pid" value="{{ product._doc._id }}">
+    <button class="boton"><a href="/api/views/home">RETURN</a></button>
+    <input type="hidden" id="pid" value="{{ product._doc._id }}">
+
+    
+</div>
+
+{{!-- <script src="/functionsCart.js"></script> --}}
+<script src="/functions.js"></script>

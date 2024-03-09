@@ -1,0 +1,35 @@
+<header>
+    <h1>
+       CARTS
+    </h1>
+</header>
+<h2>CART CONTENT</h2>
+
+
+{{#if products.length}}
+    <div class="product-cards">
+        {{#each products}}
+        <div class="product-card">
+            <h4>TITLE: {{product.title}}</h4>
+            <p>DESCRIPTION: {{product.description}}</p>
+            <img src="{{product.thumbail}}" alt="{{product.title}}">
+            <div class="botonesQuantity">
+                <button class="add-to-cart-btn" data-cart-id="{{cartId}}" onclick="deleteOne('{{cartId}}','{{product._id}}', '{{product}}')">-</button>
+                <p> QUANTITY: {{quantity}}</p>
+                <button class="add-to-cart-btn" data-cart-id="{{cartId}}" onclick="addProductToCart('{{cartId}}','{{product._id}}', '{{product}}')">+</button>
+            </div>
+            <p>CATEGORY: {{product.category}}</p>
+        </div>
+        {{/each}}
+        
+        {{!-- <h2> TOTAL PRICE: {{cart.totalPrice}}</h2> --}}
+        <button class="add-to-cart-btn" data-product-id="{{product._id}}" onclick="deleteAll('{{cartId}}')">Remove all to Cart</button>
+        <button><a href="/api/carts/{{cartId}}/purchase">COMPRAR</a></button>
+
+    </div>
+
+{{else}}
+    <p>No products available.</p>
+{{/if}}
+
+<script src="/functions.js"></script>

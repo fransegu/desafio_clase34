@@ -1,0 +1,24 @@
+<header>
+    <h1>
+        PRODUCTS
+    </h1>
+</header>
+<h3>PRODUCTS DATA BASE</h3>
+
+<h4>Press ELIMINAR to remove a product</h4>
+<h4>Press AGREGAR to add a product</h4>
+
+<form action="/api/products/change" method="post">
+    ID: <input type="number" name="id" id="id">
+    TITLE: <input type="text" name="title" id="title">
+    DESCRIPTION: <input type="text" name="description" id="description">
+    PRICE: <input type="number" name="price" id="price">
+    STOCK: <input type="number" name="stock" id="stock">
+    CODE: <input type="number" name="code" id="code">
+    CATEGORY: <input type="text" name="category" id="category">
+    
+
+    <input type="submit" name="accion" value="ELIMINAR">
+    <input type="submit" name="accion" value="AGREGAR">
+
+</form>

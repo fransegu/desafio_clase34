@@ -1,0 +1,55 @@
+<header>
+    <h1>
+       HOME
+    </h1>
+</header>
+
+
+
+{{#if user}}
+    <div class="userDiv">
+        <h2>WELCOME {{name}}</h2>
+        <h4>Your email is: {{email}} </h4>
+        <button class="boton"><a href="/api/session/signout">SIGN OUT</a></button>
+        <button class="boton"><a href="/api/views/realTimeProducts">ADMIN</a></button>
+    </div>
+
+
+{{/if}}
+
+<div class="carrito">
+    <a href="/api/views/carts/{{cartId}}" id="carritoLink">
+        <img class="imagen-carrito" src="https://cdn.pixabay.com/photo/2014/05/21/13/25/shopping-cart-349544_640.png" alt="Carrito de compras">
+    </a>
+    <span id="contadorCarrito"> {{quantity}} </span>
+    <input type="hidden" id="cartId" value="{{ cartId }}">
+
+</div>
+
+
+{{#if products.length}}
+    <div class="product-cards">
+        {{#each products}}
+        <div class="product-card">
+            <h4>TITLE: {{title}}</h4>
+            <p>DESCRIPTION: {{description}}</p>
+            <p>PRICE: ${{price}}</p>
+            <img src="{{thumbail}}" alt="{{title}}">      
+            <button class="boton"><a href="/api/views/products/{{_id}}">SEE MORE</a></button>
+
+        </div>
+        {{/each}}
+    </div>
+
+    <div id="pagination">
+        {{#if prevPage}}      
+                <button class="boton"><a id="pagination_button" href="/home/?limit={{limit}}&page={{prevPage}}">Prev Page</a></button>
+        {{/if}}    
+        <p id="pagination_number">Page {{pages}}</p>
+        {{#if nextPage}}
+                <button class="boton"><a id="pagination_button" href="/home/?limit={{limit}}&page={{nextPage}}">Next Page</a></button>
+        {{/if}}    
+    </div>
+{{else}}
+    <p>No products available.</p>
+{{/if}} 

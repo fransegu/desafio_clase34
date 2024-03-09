@@ -1,0 +1,30 @@
+<header>
+    <h1>
+       LOGIN
+    </h1>
+</header>
+<body>
+    <div class="login-container">
+        <form action="/api/session/login" class="form-group" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <input type="submit" class="boton" value="Iniciar sesión">
+            <button onclick="location.href='/api/views/signup'" class="boton">Sing up here</button>
+
+        </form> 
+        <div class="boton-container">     
+            <button onclick="location.href='/api/session/auth/github'" class="boton"><img class="logo" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="logo github"> GITHUB</button>
+            <button onclick="location.href='/api/session/auth/google'" class="boton"><img class="logo" src="https://cdn.icon-icons.com/icons2/2170/PNG/512/google_chrome_logo_browser_icon_133263.png" alt="logo google"> GOOGLE</button>
+
+            <button class="boton"><a href="/api/views/restaurar">RESTORE PASSWORD</a></button>  
+        </div>
+    </div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+</body>
